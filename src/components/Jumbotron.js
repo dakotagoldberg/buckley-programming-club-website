@@ -12,7 +12,7 @@ const Styles = styled.div`
         justify-content: center;
         background-color: #1B1C3D;
         color: #fff;
-        height: 320px;
+        height: 310px;
         text-align: center;
         position: relative;
         border-radius: 30px;
