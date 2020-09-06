@@ -28,7 +28,7 @@ const Styles = styled.div`
         height: 520px;
         position: absolute;
         z-index: -2;
-        filter: saturate(120%);
+        filter: saturate(150%);
     }
 `;
 
