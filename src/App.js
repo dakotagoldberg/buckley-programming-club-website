@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './screens/Home';
+import About from './screens/About';
+import Schedule from './screens/Schedule';
+import Projects from './screens/Projects';
+import Challenges from './screens/Challenges';
+import Contribute from './screens/Contribute';
+import NoMatch from './screens/NoMatch';
+import Layout from './components/Layout';
+import NavigationBar from './components/NavigationBar'
+import './App.css'
+// import styled from 'styled-components';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Styles>
+    <React.Fragment>
+      
+      <Layout>
+      <NavigationBar/>
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/about' component={About} />
+            <Route path='/schedule' component={Schedule} />
+            <Route path='/projects' component={Projects} />
+            <Route path='/challenges' component={Challenges} />
+            <Route path='/contribute' component={Contribute} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
+      </Layout>
+    </React.Fragment>
+    // </Styles>
   );
 }
 
-export default App;
+// const Styles = styled.div`
+//     .main {
+//         background-color: red;
+//     }
+// `;
