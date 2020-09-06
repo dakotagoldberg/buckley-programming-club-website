@@ -19,9 +19,8 @@ const Styles = styled.div`
         font-size: 24px;
         margin-left: 10px;
     }
-    .project {
-        width: 330px;
-    }
+
+    
     
     .items {
         margin-top: 40px;

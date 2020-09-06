@@ -18,7 +18,7 @@ const Styles = styled.div`
         border-radius: 30px;
         marginBottom: 50px;
         overflow: hidden;
-        z-index: -1;
+        z-index: 2;
     }
     .title {
         font-size: 54px;
@@ -33,7 +33,7 @@ const Styles = styled.div`
     .image {
         height: 520px;
         position: absolute;
-        z-index: -2;
+        z-index: 1;
         filter: saturate(150%);
     }
 `;
