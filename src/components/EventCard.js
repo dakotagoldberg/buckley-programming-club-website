@@ -27,6 +27,7 @@ export default function EventCard(props) {
     .icon {
         margin-left: -10px;
         margin-top: -8px;
+        pointer-events: none;
     }
     .meeting-text {
         margin-left: 25px;
@@ -62,7 +63,9 @@ export default function EventCard(props) {
         <Styles>
             <div className='container'>
                 <div className='color-box'>
-                    <Icon className='icon' height={130} icon={props.icon} />
+                    {/* <Icon className='icon' height={130} icon={props.icon} /> */}
+                    <img className='icon' src={props.icon} height={130} alt='' />
+                    {/* <Img fixed={document.node.image.childImageSharp.fixed}/> */}
                 </div>
                 <div className='meeting-text'>
                     <div className='meeting-title'>{props.title}</div>

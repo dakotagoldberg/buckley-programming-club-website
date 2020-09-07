@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import axios from 'axios'
 import Home from './screens/Home';
 import About from './screens/About';
 import Schedule from './screens/Schedule';
@@ -15,6 +16,7 @@ import './App.css'
 // import styled from 'styled-components';
 
 export default function App() {
+
   return (
     // <Styles>
     <React.Fragment>
@@ -34,7 +36,6 @@ export default function App() {
             <Route component={NoMatch} />
           </Switch>
         </Router>
-        <p className='bottom-text'>Made with <span aria-label='purple-heart' role='img'>💜</span> by Buckley's Programming Club</p>
       </Layout>
     </React.Fragment>
     // </Styles>

@@ -42,7 +42,7 @@ export default function Jumbotron() {
     return (
         <Styles>
             <Jumbo fluid className='jumbo'>
-                <img className='image' src={People} alt='people'/>
+                <img className='image' src={People} alt=''/>
                     <Container>
                         <h1 className='title'>Programming Club</h1>
                     </Container>

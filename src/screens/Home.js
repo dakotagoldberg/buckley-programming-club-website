@@ -22,7 +22,12 @@ const Styles = styled.div`
     .items {
         margin-top: 40px;
     }
-
+    .bottom-text {
+        font-weight: 600;
+        margin: 10px;
+        text-align: center;
+        vertical-align: baseline;
+      }
     
 `;
 
@@ -66,6 +71,7 @@ export default function Home() {
                         </Col>
                     </Row>
                 </Container>
+                <p className='bottom-text'>Made with <span aria-label='purple-heart' role='img'>💜</span> by Buckley's Programming Club</p>
                 </div>
                 
             </div>

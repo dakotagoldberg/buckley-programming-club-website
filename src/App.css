@@ -12,11 +12,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-.bottom-text {
-  font-weight: 600;
-  /* position: absolute; */
-  margin: 10px;
-  text-align: center;
-  vertical-align: baseline;
-  /* width: 90%; */
-}
