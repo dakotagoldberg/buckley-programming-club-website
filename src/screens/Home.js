@@ -12,25 +12,18 @@ import atomSymbol from '@iconify/icons-noto/atom-symbol';
 
 const Styles = styled.div`
     .container {
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
     .category-title {
         font-weight: bold;
         font-size: 24px;
         margin-left: 10px;
     }
-
-    
-    
     .items {
         margin-top: 40px;
     }
 
-    .bottom-text {
-        margin-top: 20px;
-        text-align: center;
-        font-weight: 600;
-    }
+    
 `;
 
 export default function Home() {
@@ -74,7 +67,7 @@ export default function Home() {
                     </Row>
                 </Container>
                 </div>
-                <p className='bottom-text'>Made with 💜 by Buckley's Programming Club</p>
+                
             </div>
             
         </Styles>

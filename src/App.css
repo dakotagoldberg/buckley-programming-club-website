@@ -4,8 +4,19 @@ body {
   background-color: #0A0C25;
   color: white;
   font-family: sofia-pro, sans-serif;
+  
 }
 
 .container-styles {
   max-width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.bottom-text {
+  font-weight: 600;
+  /* position: absolute; */
+  margin: 10px;
+  text-align: center;
+  vertical-align: baseline;
+  /* width: 90%; */
 }

@@ -7,6 +7,7 @@ const Styles = styled.div`
     .navbar {
         background-color: transparent;
         margin-top: 25px;
+        margin-bottom: 2.5%;
     }
     .navbar-brand, .navbar-nav .nav-link {
         color: white;

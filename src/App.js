@@ -34,6 +34,7 @@ export default function App() {
             <Route component={NoMatch} />
           </Switch>
         </Router>
+        <p className='bottom-text'>Made with <span aria-label='purple-heart' role='img'>💜</span> by Buckley's Programming Club</p>
       </Layout>
     </React.Fragment>
     // </Styles>

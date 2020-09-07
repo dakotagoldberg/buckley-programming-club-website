@@ -15,6 +15,7 @@ export default function EventCard(props) {
         border-radius: 20px;
         display: flex;
         align-items:center;
+        margin-bottom: 20px;
     }
     .color-box {
         margin-left: 8px;
