@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styled from 'styled-components'
 import Logo from '.././assets/logo.png'
 
@@ -18,9 +18,27 @@ const Styles = styled.div`
             color: #646DDF;
         }
     }
-    .toggle {
-        
+    .dropdown-menu {
+        background: #1B1C3D;
+        border-radius: 10px;
     }
+    .dropdown-item {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        background: transparent;
+        &:hover {
+            background: transparent;
+            color: #646DDF;
+        }
+        &:focus {
+            background: transparent;
+            color: #646DDF;
+        }
+    }
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+      }
 `;
 
 export default function NavigationBar() {
@@ -42,7 +60,11 @@ export default function NavigationBar() {
                         <Nav.Item><Nav.Link href='/schedule'>schedule</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/projects'>projects</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/challenges'>challenges</Nav.Link></Nav.Item>
-                        <Nav.Item><Nav.Link href='/contribute'>contribute</Nav.Link></Nav.Item>
+                        <NavDropdown title="members" id="collapsable-nav-dropdown" variant='dark' renderMenuOnMount={true}>
+                            <NavDropdown.Item href='/join'>join</NavDropdown.Item>
+                            <NavDropdown.Item href='/contribute'>contribute</NavDropdown.Item>
+                            <NavDropdown.Item href='/attendance'>attendance</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
