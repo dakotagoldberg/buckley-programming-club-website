@@ -2,7 +2,7 @@
 
 ## About
 
-This is the code for Buckley's Programming Club website. The site is build with React.
+This is the code for Buckley's Programming Club website. Built with React.
 
 ## Run
 
