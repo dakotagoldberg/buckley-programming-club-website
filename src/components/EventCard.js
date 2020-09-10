@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import { Icon, InlineIcon } from '@iconify/react';
 import { Button } from 'react-bootstrap'
+import {
+    Link,
+  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Event from '../screens/Event';
 
 
 export default function EventCard(props) {
@@ -69,10 +74,9 @@ export default function EventCard(props) {
                 <div className='meeting-text'>
                     <div className='meeting-title'>{props.title}</div>
                     <div className='meeting-date'>{props.date}</div>
-                    <Button className='info-button' href="#">{props.button}</Button>
+                    <Link to={'/' + props.slug}><Button className='info-button'>{props.button}</Button></Link>
                 </div>
             </div>
-            
         </Styles>
     )
 }

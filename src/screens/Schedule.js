@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components';
 import EventCard from '../components/EventCard'
-import flyingSaucer from '@iconify/icons-noto/flying-saucer';
-import laptopIcon from '@iconify/icons-noto/laptop';
-import axios from 'axios'
 import moment from 'moment'
 
 
@@ -59,6 +56,7 @@ export default function Schedule() {
                             title={event.metadata.name}
                             date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
                             button='Details'
+                            slug={event.slug}
                         />
                         ))}
                         
@@ -73,6 +71,7 @@ export default function Schedule() {
                                 title={event.metadata.name}
                                 date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Summary'
+                                slug={event.slug}
                             />
                             ))}
                     </Col>

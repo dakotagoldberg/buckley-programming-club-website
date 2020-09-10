@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import axios from 'axios'
 import Home from './screens/Home';
 import About from './screens/About';
 import Schedule from './screens/Schedule';
 import Projects from './screens/Projects';
 import Challenges from './screens/Challenges';
 import Join from './screens/Join';
+import Event from './screens/Event'
 import Contribute from './screens/Contribute';
 import Attendance from './screens/Attendance';
 import NoMatch from './screens/NoMatch';
@@ -33,6 +33,7 @@ export default function App() {
             <Route path='/join' component={Join} />
             <Route path='/contribute' component={Contribute} />
             <Route path='/attendance' component={Attendance} />
+            <Route path="/:slug" component={Event}/>
             <Route component={NoMatch} />
           </Switch>
         </Router>
