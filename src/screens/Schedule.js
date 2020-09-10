@@ -22,18 +22,21 @@ const Styles = styled.div`
 export default function Schedule() {
 
     const [events, setEvents] = useState([])
+    const [pastEvents, setPastEvents] = useState([])
     const [error, setError] = useState(null)
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:1337/events');
-                console.log(response.data)
-                setEvents(response.data)
-            }
-            catch(error) {
-                setError({ error })
-            }
+            const Cosmic = require('cosmicjs')
+            const api = Cosmic()
+            const bucket = api.bucket({
+                slug: 'programming-club',
+                read_key: process.env.REACT_APP_READ_KEY,
+            })
+            const objects = (await bucket.getObjects()).objects
+            console.log(objects)
+            setPastEvents(objects.filter(item => item.metadata.completed))
+            setEvents(objects.filter(item => !item.metadata.completed))
         }
         fetchData()
     },[])
@@ -46,42 +49,32 @@ export default function Schedule() {
         <Styles>
             <Container className='content'>
                 <Row>
-                    <Col md={7}>
+                    <Col lg={7}>
                         <p className='category-title'>Schedule</p>
-                        {events.map(event => {
-                            if (!event.completed) {
-                                return (
-                                    <EventCard
-                                        key={event.id}
-                                        background={`linear-gradient(294.87deg, ${event.gradient_start} 4.32%, ${event.gradient_end} 85.78%)`}
-                                        icon={'http://localhost:1337' + event.icon.url}
-                                        title={event.name}
-                                        date={moment(event.date_start).format('dddd, MMMM Do, YYYY @ hh:mmA')}
-                                        button='Details'
-                                    />
-                                )
-                            }
-                            else return (<></>)
-                        })}
+                        {events.map(event => (
+                            <EventCard
+                            key={event.metadata_id}
+                            background={`linear-gradient(294.87deg, ${event.metadata.gradient_start} 4.32%, ${event.metadata.gradient_end} 85.78%)`}
+                            icon={event.metadata.icon && event.metadata.icon.url}
+                            title={event.metadata.name}
+                            date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
+                            button='Details'
+                        />
+                        ))}
                         
                     </Col>
-                    <Col md={5}>
+                    <Col lg={5}>
                         <p className='category-title'>Past Events</p>
-                        {events.map(event => {
-                            if (event.completed) {
-                                return (
-                                    <EventCard
-                                        key={event.id}
-                                        background={`linear-gradient(294.87deg, ${event.gradient_start} 4.32%, ${event.gradient_end} 85.78%)`}
-                                        icon={'http://localhost:1337' + event.icon.url}
-                                        title={event.name}
-                                        date={moment(event.date_start).format('dddd, MMMM Do, YYYY')}
-                                        button='Details'
-                                    />
-                                )
-                            }
-                            else return (<></>)
-                        })}
+                            {pastEvents.map(event => (
+                                <EventCard
+                                key={event.metadata_id}
+                                background={`linear-gradient(294.87deg, ${event.metadata.gradient_start} 4.32%, ${event.metadata.gradient_end} 85.78%)`}
+                                icon={event.metadata.icon && event.metadata.icon.url}
+                                title={event.metadata.name}
+                                date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
+                                button='Summary'
+                            />
+                            ))}
                     </Col>
                 </Row>
             </Container>

@@ -65,7 +65,6 @@ export default function EventCard(props) {
                 <div className='color-box'>
                     {/* <Icon className='icon' height={130} icon={props.icon} /> */}
                     <img className='icon' src={props.icon} height={130} alt='' />
-                    {/* <Img fixed={document.node.image.childImageSharp.fixed}/> */}
                 </div>
                 <div className='meeting-text'>
                     <div className='meeting-title'>{props.title}</div>

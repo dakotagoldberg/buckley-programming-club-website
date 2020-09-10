@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import Jumbotron from '../components/Jumbotron'
 import { Container, Row, Col } from 'react-bootstrap'
 import EventCard from '../components/EventCard'
 import ProjectCard from '../components/ProjectCard'
 import styled from 'styled-components';
-import flyingSaucer from '@iconify/icons-noto/flying-saucer';
-import laptopIcon from '@iconify/icons-noto/laptop';
+import moment from 'moment'
 import atomSymbol from '@iconify/icons-noto/atom-symbol';
 
 
@@ -32,6 +32,28 @@ const Styles = styled.div`
 `;
 
 export default function Home() {
+    
+    const [pastMeeting, setPastMeeting] = useState({})
+    const [nextUp, setNextUp] = useState({})
+    const [error, setError] = useState(null)
+
+        useEffect(() => {
+            const fetchData = async () => {
+                
+                const Cosmic = require('cosmicjs')
+                const api = Cosmic()
+                const bucket = api.bucket({
+                    slug: 'programming-club',
+                    read_key: process.env.REACT_APP_READ_KEY,
+                })
+                const objects = (await bucket.getObjects()).objects
+                console.log(objects)
+                setPastMeeting(objects.filter(item => item.metadata.completed)[0].metadata)
+                setNextUp(objects.filter(item => !item.metadata.completed)[0].metadata)
+            }
+            fetchData()
+        },[])
+        
     return (
         <Styles>
             <div>
@@ -42,20 +64,22 @@ export default function Home() {
                         <Col lg>
                             <p className='category-title'>Past Meeting</p>
                             <EventCard
-                                background='linear-gradient(109.83deg, #E232FF 4.62%, #F87B20 92.4%)'
-                                icon={laptopIcon}
-                                title='Meeting #1'
-                                date='September 12, 2020'
+                                key={pastMeeting._id}
+                                background={`linear-gradient(294.87deg, ${pastMeeting.gradient_start} 4.32%, ${pastMeeting.gradient_end} 85.78%)`}
+                                icon={pastMeeting.icon && pastMeeting.icon.url}
+                                title={pastMeeting.name}
+                                date={moment(pastMeeting.date_start).format('dddd, MMMM Do')}
                                 button='Summary'
                             />
                         </Col>
                         <Col lg>
                             <p className='category-title'>Next Up</p>
                             <EventCard
-                                background='linear-gradient(294.87deg, #515BEA 4.32%, #B10CFF 85.78%)'
-                                icon={flyingSaucer}
-                                title='Meeting #2'
-                                date='September 19, 2020'
+                                key={nextUp._id}
+                                background={`linear-gradient(294.87deg, ${nextUp.gradient_start} 4.32%, ${nextUp.gradient_end} 85.78%)`}
+                                icon={nextUp.icon && nextUp.icon.url}
+                                title={nextUp.name}
+                                date={moment(nextUp.date_start).format('dddd, MMMM Do')}
                                 button='Details'
                             />
                         </Col>
