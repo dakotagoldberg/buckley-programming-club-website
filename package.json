@@ -1,5 +1,6 @@
 {
   "name": "buckley-programming-club-website",
+  "homepage": "https://buckley-programming-club-website.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
