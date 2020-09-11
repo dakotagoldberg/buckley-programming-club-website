@@ -57,12 +57,12 @@ export default function NavigationBar() {
                 <Navbar.Toggle aria-controls='navbar-basic-nav' className='navbar-dark' />
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='ml-auto'>
-                        <Nav.Item><Nav.Link href='/about'>about</Nav.Link></Nav.Item>
+                        {/* <Nav.Item><Nav.Link href='/about'>about</Nav.Link></Nav.Item> */}
                         <Nav.Item><Nav.Link href='/schedule'>schedule</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/projects'>projects</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/challenges'>challenges</Nav.Link></Nav.Item>
                         <NavDropdown title="members" id="collapsable-nav-dropdown" variant='dark' renderMenuOnMount={true}>
-                            <NavDropdown.Item href='/join'>join</NavDropdown.Item>
+                            {/* <NavDropdown.Item href='/join'>join</NavDropdown.Item> */}
                             <NavDropdown.Item href='/contribute'>contribute</NavDropdown.Item>
                             <NavDropdown.Item href='/attendance'>attendance</NavDropdown.Item>
                         </NavDropdown>

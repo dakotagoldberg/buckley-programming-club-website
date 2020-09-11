@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 const Styles = styled.div`
     .content {
         // margin-top: 20px;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 600,
     }
     h1 {
@@ -17,12 +17,7 @@ const Styles = styled.div`
     }
     h3 {
         font-weight: bold;
-        font-size: 36x;
-        margin-left: 10px;
-    }
-    h3 {
-        font-weight: bold;
-        font-size: 36x;
+        font-size: 40x;
         margin-left: 10px;
     }
     li {
@@ -34,8 +29,19 @@ const Styles = styled.div`
         padding-left: 15px;
         padding-right: 15px;
         border-radius: 10px;
-        max-width: 500px;
-        margin-left: -30px;
+        // max-width: 500px;
+        margin-left: -32px;
+    }
+    .color-box {
+        margin-left: 16px;
+        width: 220px;
+        height: 220px;
+        border-radius: 40px;
+    }
+    .icon {
+        margin-left: -20px;
+        margin-top: -16px;
+        pointer-events: none;
     }
 `;
 
@@ -66,9 +72,18 @@ export default function Event() {
         <Styles>
             {event.metadata && (
                 <Container className='content'>
-                    <h1 className='event-title'>{event.metadata.name}</h1>
-                    <br></br>
-                    <div dangerouslySetInnerHTML={{__html: event.metadata.summary}}/>
+                    <Row>
+                        <Col lg={6}>
+                            <h1 className='event-title'>{event.metadata.name}</h1>
+                            <br></br>
+                            <div dangerouslySetInnerHTML={{__html: event.metadata.completed ? event.metadata.summary : event.metadata.description}}/>
+                        </Col>
+                        <Col lg={6} className='image-area' style={{minHeight: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center'}}>
+                            {/* <div className='color-box' style={{background: `linear-gradient(294.87deg, ${event.metadata.gradient_start} 4.32%, ${event.metadata.gradient_end} 85.78%)`}}>
+                                <img className='icon' src={event.metadata.icon.url} height={260} alt='' />
+                            </div> */}
+                        </Col>
+                    </Row>
                 </Container>
             )}
         </Styles>

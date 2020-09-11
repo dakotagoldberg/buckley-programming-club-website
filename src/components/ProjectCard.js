@@ -64,7 +64,7 @@ export default function ProjectCard(props) {
                 <div className='meeting-text'>
                     <div className='project-title'>{props.title}</div>
                     <div className='languages'>{props.languages}</div>
-                    <Button className='info-button' href="#">{props.button}</Button>
+                    <Button className='info-button' href="/projects">{props.button}</Button>
                 </div>
             </div>
             
