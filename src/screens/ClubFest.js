@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
+import { useWindowSize } from '@react-hook/window-size'
+import Confetti from 'react-confetti'
 
 const Styles = styled.div`
     .content {
@@ -36,8 +38,16 @@ const Styles = styled.div`
 `;
 
 export default function ClubFest() {
+    const { width, height } = useWindowSize()
     return (
         <Styles>
+            <Confetti
+                width={width}
+                height={height}
+                numberOfPieces={1000}
+                tweenDuration={70000}
+                recycle={false}
+            />
             <Container className='content'>
                 <h1>Welcome from Buckley's Club Fest!</h1>
                 <p>Feel free to contact <a className='code' href='mailto:dakotagoldberg@buckley.org'>dakotagoldberg@buckley.org</a> if you have any questions.</p>

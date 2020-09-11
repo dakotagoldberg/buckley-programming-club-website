@@ -78,11 +78,11 @@ export default function Event() {
                             <br></br>
                             <div dangerouslySetInnerHTML={{__html: event.metadata.completed ? event.metadata.summary : event.metadata.description}}/>
                         </Col>
-                        <Col lg={6} className='image-area' style={{minHeight: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center'}}>
+                        {/* <Col lg={6} className='image-area' style={{minHeight: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center'}}> */}
                             {/* <div className='color-box' style={{background: `linear-gradient(294.87deg, ${event.metadata.gradient_start} 4.32%, ${event.metadata.gradient_end} 85.78%)`}}>
                                 <img className='icon' src={event.metadata.icon.url} height={260} alt='' />
                             </div> */}
-                        </Col>
+                        {/* </Col> */}
                     </Row>
                 </Container>
             )}
