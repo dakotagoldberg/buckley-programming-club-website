@@ -25,7 +25,7 @@ export default function App() {
       <NavigationBar/>
         <Router>
           <Switch>
-            <Route exact path='https://buckley-programming-club-website.vercel.app/' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/schedule' component={Schedule} />
             <Route path='/projects' component={Projects} />
