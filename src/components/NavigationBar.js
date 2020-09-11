@@ -13,7 +13,8 @@ const Styles = styled.div`
         color: white;
         font-weight: 700;
         font-size: 20px;
-        margin-left: 10px;
+        margin-right: 5px;
+        margin-left: 5px;
 
         &:hover {
             color: #646DDF;
@@ -40,6 +41,13 @@ const Styles = styled.div`
     .dropdown:hover>.dropdown-menu {
         display: block;
       }
+    
+    .special {
+        background: #505CCE60;
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 `;
 
 export default function NavigationBar() {
@@ -58,6 +66,7 @@ export default function NavigationBar() {
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='ml-auto'>
                         {/* <Nav.Item><Nav.Link href='/about'>about</Nav.Link></Nav.Item> */}
+                        <Nav.Item className='special' ><Nav.Link href='/club-fest'>club fest</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/schedule'>schedule</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/projects'>projects</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/challenges'>challenges</Nav.Link></Nav.Item>

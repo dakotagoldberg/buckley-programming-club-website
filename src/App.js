@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './screens/Home';
 import About from './screens/About';
+import ClubFest from './screens/ClubFest';
 import Schedule from './screens/Schedule';
 import Projects from './screens/Projects';
 import Challenges from './screens/Challenges';
@@ -26,6 +27,7 @@ export default function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
+            <Route path='/club-fest' component={ClubFest} />
             <Route path='/schedule' component={Schedule} />
             <Route path='/projects' component={Projects} />
             <Route path='/challenges' component={Challenges} />

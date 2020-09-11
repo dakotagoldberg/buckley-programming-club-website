@@ -47,7 +47,7 @@ export default function Home() {
                     read_key: process.env.REACT_APP_READ_KEY,
                 })
                 const objects = (await bucket.getObjects()).objects
-                console.log(objects)
+                // console.log(objects)
                 setPastMeeting(objects.filter(item => item.metadata.completed)[0])
                 setNextUp(objects.filter(item => !item.metadata.completed)[0])
             }

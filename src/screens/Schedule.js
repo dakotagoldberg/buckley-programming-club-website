@@ -31,7 +31,7 @@ export default function Schedule() {
                 read_key: process.env.REACT_APP_READ_KEY,
             })
             const objects = (await bucket.getObjects()).objects
-            console.log(objects)
+            // console.log(objects)
             setPastEvents(objects.filter(item => item.metadata.completed))
             setEvents(objects.filter(item => !item.metadata.completed))
         }
