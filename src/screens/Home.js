@@ -48,8 +48,8 @@ export default function Home() {
                 })
                 const objects = (await bucket.getObjects()).objects
                 console.log(objects)
-                setPastMeeting(objects.filter(item => item.metadata.completed)[0].metadata)
-                setNextUp(objects.filter(item => !item.metadata.completed)[0].metadata)
+                setPastMeeting(objects.filter(item => item.metadata.completed)[0])
+                setNextUp(objects.filter(item => !item.metadata.completed)[0])
             }
             fetchData()
         },[])
@@ -63,25 +63,32 @@ export default function Home() {
                     <Row>
                         <Col lg>
                             <p className='category-title'>Past Meeting</p>
-                            <EventCard
-                                key={pastMeeting._id}
-                                background={`linear-gradient(294.87deg, ${pastMeeting.gradient_start} 4.32%, ${pastMeeting.gradient_end} 85.78%)`}
-                                icon={pastMeeting.icon && pastMeeting.icon.url}
-                                title={pastMeeting.name}
-                                date={moment(pastMeeting.date_start).format('dddd, MMMM Do')}
+                            {pastMeeting.metadata && (
+                                <EventCard
+                                key={pastMeeting.metadata._id}
+                                background={`linear-gradient(294.87deg, ${pastMeeting.metadata.gradient_start} 4.32%, ${pastMeeting.metadata.gradient_end} 85.78%)`}
+                                icon={pastMeeting.metadata.icon && pastMeeting.metadata.icon.url}
+                                title={pastMeeting.metadata.name}
+                                date={moment(pastMeeting.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Summary'
+                                slug={pastMeeting.slug}
                             />
+                            )}
+                            
                         </Col>
                         <Col lg>
                             <p className='category-title'>Next Up</p>
-                            <EventCard
-                                key={nextUp._id}
-                                background={`linear-gradient(294.87deg, ${nextUp.gradient_start} 4.32%, ${nextUp.gradient_end} 85.78%)`}
-                                icon={nextUp.icon && nextUp.icon.url}
-                                title={nextUp.name}
-                                date={moment(nextUp.date_start).format('dddd, MMMM Do')}
+                            {nextUp.metadata &&  (
+                                <EventCard
+                                key={nextUp.metadata._id}
+                                background={`linear-gradient(294.87deg, ${nextUp.metadata.gradient_start} 4.32%, ${nextUp.metadata.gradient_end} 85.78%)`}
+                                icon={nextUp.metadata.icon && nextUp.metadata.icon.url}
+                                title={nextUp.metadata.name}
+                                date={moment(nextUp.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Details'
+                                slug={nextUp.slug}
                             />
+                            )}
                         </Col>
                         <Col lg='auto'>
                         <p className='category-title'>Current Project</p>
