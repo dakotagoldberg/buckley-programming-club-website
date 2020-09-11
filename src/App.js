@@ -18,7 +18,6 @@ import './App.css'
 export default function App() {
 
   return (
-    // <Styles>
     <React.Fragment>
       
       <Layout>
@@ -39,7 +38,6 @@ export default function App() {
         </Router>
       </Layout>
     </React.Fragment>
-    // </Styles>
   );
 }
 
