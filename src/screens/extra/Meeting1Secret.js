@@ -14,10 +14,13 @@ const Styles = styled.div`
         display: flexbox;
         text-align: center;
         padding-top: 15px;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-end;
+        align-items: flex-end;
         height: 500px;
-        max-width: 1000px;
+        // max-width: 1000px;
+        width: '90%';
+        // flex-direction: column;
+        flex: 1,
     }
     h1 {
         font-weight: bold;
@@ -30,10 +33,19 @@ const Styles = styled.div`
         background-color: #1B1C3D;
         border-radius: 10px;
         min-width: 20px;
+        // width: 400px;
         font-size: 24px;
+        // max-width: 50%;
         font-weight: 600;
         margin-bottom: 20px;
         align-self: center;
+        flex-basis: 50px;
+        margin-left: 25vw;
+        margin-right: 25vw;
+        @media (max-width: 500px) {
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
     }
     .form {
         max-width: 600px;
