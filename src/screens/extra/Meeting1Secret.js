@@ -74,6 +74,7 @@ export default function Meeting1Secret() {
             />
             <Container className='content'>
                 <h1>You found it!</h1>
+                <p>Check out <a href='http://angelctf.com/' rel="noopener noreferrer" target="_blank" >Mr. Rangels' CTF (angelctf)</a> for more challenges way harder than this one.</p>
                 <Reward
                     ref={rewardRef}
                     type='emoji'
