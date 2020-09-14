@@ -71,7 +71,7 @@ export default function NavigationBar() {
                         <Nav.Item><Nav.Link href='/projects'>projects</Nav.Link></Nav.Item>
                         <Nav.Item><Nav.Link href='/challenges'>challenges</Nav.Link></Nav.Item>
                         <NavDropdown title="members" id="collapsable-nav-dropdown" variant='dark' renderMenuOnMount={true}>
-                            {/* <NavDropdown.Item href='/join'>join</NavDropdown.Item> */}
+                            <NavDropdown.Item href='/join'>join</NavDropdown.Item>
                             <NavDropdown.Item href='/contribute'>contribute</NavDropdown.Item>
                             <NavDropdown.Item href='/attendance'>attendance</NavDropdown.Item>
                         </NavDropdown>

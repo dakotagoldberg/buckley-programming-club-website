@@ -9,10 +9,11 @@ const Styles = styled.div`
         font-weight: 600,
         display: flexbox;
         text-align: center;
-        padding-top: 100px;
+        padding-top: 15px;
         justify-content: center;
         align-items: center;
         height: 500px;
+        max-width: 1000px;
     }
     h1 {
         font-weight: bold;
@@ -37,6 +38,11 @@ const Styles = styled.div`
         height: 70px;
         font-size: 24;
     }
+    
+    .form {
+        max-width: 600px;
+        width: 100%;
+    }
 `;
 
 export default function Join() {
@@ -44,26 +50,8 @@ export default function Join() {
         <Styles>
             <Container className='content'>
                 <h1>Join Programming Club</h1>
-                {/* <p>If you are not already a member, enter your Buckley email to be added to the club's email list:</p>
-                <Form>
-                    <Form.Row className="align-items-center">
-                    <Col lg='auto' className="my-1">
-                        <Form.Label htmlFor="inlineFormInputGroupUsername" srOnly>
-                            Username
-                        </Form.Label>
-                        <InputGroup>
-                            <InputGroup.Append>
-                            <InputGroup.Text>@</InputGroup.Text>
-                            </InputGroup.Append>
-                            <FormControl id="inlineFormInputGroupUsername" placeholder="Username" />
-                        </InputGroup>
-                        </Col>
-                        <Col lg="auto" className="my-1">
-                            <Button type="submit">Submit</Button>
-                        </Col>
-                    </Form.Row>
-                </Form> */}
-
+                <p>Join our email list for meeting codes, notifications, opportunities, and more.</p>
+                <iframe title='join' src="https://docs.google.com/forms/d/e/1FAIpQLSeSFjNq8RQZ_ZaX19yV5Up1EnzWwWJSoQjpHDFIjyLLNVk8OA/viewform?embedded=true" className='form' height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </Container>
         </Styles>
     )

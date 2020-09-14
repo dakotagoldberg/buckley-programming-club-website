@@ -66,11 +66,11 @@ export default function Event() {
       setEvent(post)
     };
     fetchBlog()
-  }, []);
+  }, [bucket, slug]);
 
     return (
         <Styles>
-            {event.metadata && (
+            {event && event.metadata && (
                 <Container className='content'>
                     <Row>
                         <Col lg={6}>

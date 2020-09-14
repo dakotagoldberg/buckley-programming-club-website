@@ -11,6 +11,7 @@ import Event from './screens/Event'
 import Contribute from './screens/Contribute';
 import Attendance from './screens/Attendance';
 import NoMatch from './screens/NoMatch';
+import Meeting1Secret from './screens/extra/Meeting1Secret'
 import Layout from './components/Layout';
 import NavigationBar from './components/NavigationBar'
 import './App.css'
@@ -34,6 +35,7 @@ export default function App() {
             <Route path='/join' component={Join} />
             <Route path='/contribute' component={Contribute} />
             <Route path='/attendance' component={Attendance} />
+            <Route path='/de89baf573bddac981489533bc3fc8d0' component={Meeting1Secret}/>
             <Route path="/:slug" component={Event}/>
             <Route component={NoMatch} />
           </Switch>
