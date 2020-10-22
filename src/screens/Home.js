@@ -49,7 +49,7 @@ export default function Home() {
                 const objects = (await bucket.getObjects()).objects
                 // console.log(objects)
                 setPastMeeting(objects.filter(item => item.metadata.completed)[0])
-                setNextUp(objects.filter(item => !item.metadata.completed)[0])
+                setNextUp(objects.filter(item => !item.metadata.completed)[(objects.filter(item => !item.metadata.completed)).length - 1])
             }
             fetchData()
         },[])

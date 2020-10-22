@@ -33,7 +33,7 @@ export default function Schedule() {
             const objects = (await bucket.getObjects()).objects
             // console.log(objects)
             setPastEvents(objects.filter(item => item.metadata.completed))
-            setEvents(objects.filter(item => !item.metadata.completed))
+            setEvents(objects.filter(item => !item.metadata.completed).reverse())
         }
         fetchData()
     },[])
