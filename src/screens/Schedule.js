@@ -30,7 +30,7 @@ export default function Schedule() {
                 slug: 'programming-club',
                 read_key: process.env.REACT_APP_READ_KEY,
             })
-            const objects = (await bucket.getObjects()).objects
+            const objects = (await bucket.getObjects({type: 'events'})).objects
             // console.log(objects)
             setPastEvents(objects.filter(item => item.metadata.completed))
             setEvents(objects.filter(item => !item.metadata.completed).reverse())

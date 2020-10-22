@@ -1,32 +1,66 @@
-import React from 'react'
-import styled from 'styled-components';
+import React, {useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import styled from 'styled-components';
+import ProjectCard from '../components/ProjectCard'
+import moment from 'moment'
+
 
 const Styles = styled.div`
     .content {
         // margin-top: 20px;
-        font-size: 22px;
-        font-weight: 600,
-        display: flexbox;
-        text-align: center;
-        padding-top: 100px;
-        justify-content: center;
-        align-items: center;
-        height: 500px;
     }
-    h1 {
+    .category-title {
         font-weight: bold;
-        font-size: 44px;
+        font-size: 24px;
         margin-left: 10px;
     }
 `;
 
-export default function Projects() {
+export default function Schedule() {
+
+    const [projects, setProjects] = useState([])
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const Cosmic = require('cosmicjs')
+            const api = Cosmic()
+            const bucket = api.bucket({
+                slug: 'programming-club',
+                read_key: process.env.REACT_APP_READ_KEY,
+            })
+            const objects = (await bucket.getObjects({type: 'projects',})).objects
+            // console.log(objects)
+            // console.log(objects)
+            setProjects(objects.filter(item => !item.metadata.completed).reverse())
+        }
+        fetchData()
+    },[])
+
+    if (error) {
+        return <div>An error occured: {error.message}</div>
+     }
+
     return (
         <Styles>
             <Container className='content'>
-                <h1>Projects</h1>
-                <p>Projects to be added soon!</p>
+                <Row>
+                    <Col lg={3}>
+                        <p className='category-title'>Projects</p>
+                        {projects.map(project => (
+                            <ProjectCard
+                            key={project.metadata_id}
+                            icon={project.metadata.icon && project.metadata.icon.url}
+                            title={project.metadata.name}
+                            tools={project.metadata.tools}
+                            button='Details'
+                            slug={project.slug}
+                        />
+                        ))}
+                        
+                    </Col>
+                
+                </Row>
             </Container>
         </Styles>
     )

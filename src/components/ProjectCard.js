@@ -24,6 +24,8 @@ export default function ProjectCard(props) {
         margin-left: -20px;
         margin-top: -20px;
         position: absolute;
+        height: 100px;
+        width: 100px;
     }
     .meeting-text {
         margin-left: 25px;
@@ -59,11 +61,11 @@ export default function ProjectCard(props) {
         <Styles>
             <div className='container'>
                 <div className='background-box'>
-                    <Icon className='icon' height={100} icon={props.icon} />
+                    <img className='icon' src={props.icon} height={130} alt='' />
                 </div>
                 <div className='meeting-text'>
                     <div className='project-title'>{props.title}</div>
-                    <div className='languages'>{props.languages}</div>
+                    <div className='languages'>{props.tools}</div>
                     <Button className='info-button' href="/projects">{props.button}</Button>
                 </div>
             </div>

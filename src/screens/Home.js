@@ -35,6 +35,7 @@ export default function Home() {
     
     const [pastMeeting, setPastMeeting] = useState({})
     const [nextUp, setNextUp] = useState({})
+    const [project, setProject] = useState({})
     const [error, setError] = useState(null)
 
         useEffect(() => {
@@ -46,14 +47,16 @@ export default function Home() {
                     slug: 'programming-club',
                     read_key: process.env.REACT_APP_READ_KEY,
                 })
-                const objects = (await bucket.getObjects()).objects
-                // console.log(objects)
+                const objects = (await bucket.getObjects({type: 'events'})).objects
+                const projects = (await bucket.getObjects({type: 'projects'})).objects
                 setPastMeeting(objects.filter(item => item.metadata.completed)[0])
+                setProject(projects[0])
+                
                 setNextUp(objects.filter(item => !item.metadata.completed)[(objects.filter(item => !item.metadata.completed)).length - 1])
             }
             fetchData()
+            
         },[])
-        
     return (
         <Styles>
             <div>
@@ -92,13 +95,16 @@ export default function Home() {
                         </Col>
                         <Col lg='auto'>
                         <p className='category-title'>Current Project</p>
+                        {project.metadata && (
                             <ProjectCard
-                                    background='linear-gradient(294.87deg, #515BEA 4.32%, #B10CFF 85.78%)'
-                                    icon={atomSymbol}
-                                    title='Club Website'
-                                    languages='React.js'
-                                    button='Learn More'
-                                />
+                            key={project.metadata_id}
+                            icon={project.metadata.icon && project.metadata.icon.url}
+                            title={project.metadata.name}
+                            tools={project.metadata.tools}
+                            button='Details'
+                            slug={project.slug}
+                        />
+                        )}
                         </Col>
                     </Row>
                 </Container>
