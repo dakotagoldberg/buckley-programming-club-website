@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom'
+import moment from 'moment'
 
 
 const Styles = styled.div`
@@ -43,6 +44,14 @@ const Styles = styled.div`
         margin-top: -16px;
         pointer-events: none;
     }
+    .extra {
+        margin-top: 60px;
+    }
+    .event-date {
+        font-weight: 400;
+        font-size: 24px;
+        color: #646DDF;
+    }
 `;
 
 export default function Event() {
@@ -75,9 +84,21 @@ export default function Event() {
                     <Row>
                         <Col lg={6}>
                             <h1 className='event-title'>{event.metadata.name}</h1>
+                            <h3 className='event-date'>{moment(event.metadata.date_start).format('dddd, MMMM Do')}</h3>
                             <br></br>
                             <div dangerouslySetInnerHTML={{__html: event.metadata.completed ? event.metadata.summary : event.metadata.description}}/>
                         </Col>
+                        {event.metadata.extra && (
+                            <>
+                            <Col lg={1}>{}</Col>
+                            <Col lg={5} className='extra'>
+                                {/* <h1 className='event-title'>{event.metadata.extra_title}</h1> */}
+                                <br></br>
+                                <div dangerouslySetInnerHTML={{__html: event.metadata.extra}}/>
+                            </Col>
+                        </>
+                        )}
+                        
                         {/* <Col lg={6} className='image-area' style={{minHeight: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center'}}> */}
                             {/* <div className='color-box' style={{background: `linear-gradient(294.87deg, ${event.metadata.gradient_start} 4.32%, ${event.metadata.gradient_end} 85.78%)`}}>
                                 <img className='icon' src={event.metadata.icon.url} height={260} alt='' />
