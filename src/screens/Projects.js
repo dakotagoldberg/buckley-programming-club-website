@@ -13,6 +13,13 @@ const Styles = styled.div`
         font-weight: bold;
         font-size: 24px;
         margin-left: 10px;
+        display: block;
+    }
+    .list {
+        // display:flex;
+        // justify-content:flex-start;
+        // align-items:flex-start;
+        // flex-wrap: wrap;
     }
 `;
 
@@ -32,7 +39,7 @@ export default function Schedule() {
             const objects = (await bucket.getObjects({type: 'projects',})).objects
             // console.log(objects)
             // console.log(objects)
-            setProjects(objects.filter(item => !item.metadata.completed).reverse())
+            setProjects(objects.filter(item => !item.metadata.completed))
         }
         fetchData()
     },[])
@@ -44,21 +51,22 @@ export default function Schedule() {
     return (
         <Styles>
             <Container className='content'>
+            <p className='category-title'>Projects</p>
                 <Row>
-                    <Col lg={3}>
-                        <p className='category-title'>Projects</p>
+                    
                         {projects.map(project => (
-                            <ProjectCard
-                            key={project.metadata_id}
-                            icon={project.metadata.icon && project.metadata.icon.url}
-                            title={project.metadata.name}
-                            tools={project.metadata.tools}
-                            button='Details'
-                            slug={project.slug}
-                        />
+                             <Col lg={4} md={6}>
+                                <ProjectCard
+                                key={project.metadata_id}
+                                icon={project.metadata.icon && project.metadata.icon.url}
+                                title={project.metadata.name}
+                                tools={project.metadata.tools}
+                                button='Details'
+                                slug={project.slug}
+                                />
+                            </Col>
                         ))}
-                        
-                    </Col>
+                    
                 
                 </Row>
             </Container>

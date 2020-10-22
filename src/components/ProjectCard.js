@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap'
 export default function ProjectCard(props) {
     const Styles = styled.div`
     .container {
-        max-width: 350px;
+        // max-width: 350px;
         height: 160px;
         display: flex;
         align-items:center;
@@ -32,8 +32,8 @@ export default function ProjectCard(props) {
     }
     .project-title {
         font-weight: bold;
-        font-size: 24px;
-        line-height: 24px;
+        font-size: 28px;
+        line-height: 30px;
     }
     .languages {
         font-size: 17px;
