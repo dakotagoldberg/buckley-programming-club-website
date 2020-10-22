@@ -11,7 +11,7 @@ const Styles = styled.div`
     }
     .category-title {
         font-weight: bold;
-        font-size: 24px;
+        font-size: 36px;
         margin-left: 10px;
         display: block;
     }
@@ -61,6 +61,7 @@ export default function Schedule() {
                                 icon={project.metadata.icon && project.metadata.icon.url}
                                 title={project.metadata.name}
                                 tools={project.metadata.tools}
+                                timeframe={project.metadata.timeframe}
                                 button='Details'
                                 slug={project.slug}
                                 />

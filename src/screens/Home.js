@@ -101,6 +101,7 @@ export default function Home() {
                             icon={project.metadata.icon && project.metadata.icon.url}
                             title={project.metadata.name}
                             tools={project.metadata.tools}
+                            timeframe={project.metadata.timeframe}
                             button='Details'
                             slug={project.slug}
                         />
