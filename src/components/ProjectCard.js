@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Icon, InlineIcon } from '@iconify/react';
-import { Button } from 'react-bootstrap'
+import {
+    Link,
+  } from "react-router-dom";
+  import { Button } from 'react-bootstrap'
 
 
 export default function ProjectCard(props) {
@@ -67,7 +69,7 @@ export default function ProjectCard(props) {
                     <div className='project-title'>{props.title}</div>
                     {/* <div className='languages'>{props.tools}</div> */}
                     <div className='languages'>{props.timeframe}</div>
-                    <Button className='info-button' href="/projects">{props.button}</Button>
+                    <Link to={'projects/' + props.slug}><Button className='info-button'>{props.button}</Button></Link>
                 </div>
             </div>
             

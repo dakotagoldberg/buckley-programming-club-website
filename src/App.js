@@ -8,6 +8,7 @@ import Projects from './screens/Projects';
 import Challenges from './screens/Challenges';
 import Join from './screens/Join';
 import Event from './screens/Event'
+import Project from './screens/Project'
 import Contribute from './screens/Contribute';
 import Attendance from './screens/Attendance';
 import NoMatch from './screens/NoMatch';
@@ -30,6 +31,7 @@ export default function App() {
             <Route path='/about' component={About} />
             <Route path='/club-fest' component={ClubFest} />
             <Route path='/schedule' component={Schedule} />
+            <Route path="/projects/:slug" component={Project}/>
             <Route path='/projects' component={Projects} />
             <Route path='/challenges' component={Challenges} />
             <Route path='/join' component={Join} />
