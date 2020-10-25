@@ -15,11 +15,8 @@ const Styles = styled.div`
         margin-left: 10px;
         display: block;
     }
-    .list {
-        // display:flex;
-        // justify-content:flex-start;
-        // align-items:flex-start;
-        // flex-wrap: wrap;
+    .item {
+        padding-bottom: 30px;
     }
 `;
 
@@ -55,7 +52,7 @@ export default function Schedule() {
                 <Row>
                     
                         {projects.map(project => (
-                             <Col lg={4} md={6}>
+                             <Col lg={4} md={6} className='item'>
                                 <ProjectCard
                                 key={project.metadata_id}
                                 icon={project.metadata.icon && project.metadata.icon.url}
@@ -67,7 +64,6 @@ export default function Schedule() {
                                 />
                             </Col>
                         ))}
-                    
                 
                 </Row>
             </Container>

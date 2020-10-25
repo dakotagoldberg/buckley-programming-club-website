@@ -36,7 +36,7 @@ export default function App() {
             <Route path='/contribute' component={Contribute} />
             <Route path='/attendance' component={Attendance} />
             <Route path='/de89baf573bddac981489533bc3fc8d0' component={Meeting1Secret}/>
-            <Route path="/:slug" component={Event}/>
+            <Route path="/events/:slug" component={Event}/>
             <Route component={NoMatch} />
           </Switch>
         </Router>
