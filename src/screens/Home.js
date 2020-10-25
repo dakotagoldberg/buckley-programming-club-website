@@ -74,7 +74,7 @@ export default function Home() {
                                 title={pastMeeting.metadata.name}
                                 date={moment(pastMeeting.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Summary'
-                                slug={'events/' + pastMeeting.slug}
+                                slug={pastMeeting.slug}
                             />
                             )}
                             
@@ -89,7 +89,7 @@ export default function Home() {
                                 title={nextUp.metadata.name}
                                 date={moment(nextUp.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Details'
-                                slug={'events/' + nextUp.slug}
+                                slug={nextUp.slug}
                             />
                             )}
                         </Col>
@@ -103,7 +103,7 @@ export default function Home() {
                             tools={project.metadata.tools}
                             timeframe={project.metadata.timeframe}
                             button='Details'
-                            slug={'projects/' + project.slug}
+                            slug={project.slug}
                         />
                         )}
                         </Col>

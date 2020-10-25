@@ -56,7 +56,7 @@ export default function Schedule() {
                             title={event.metadata.name}
                             date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
                             button='Details'
-                            slug={'events/' + event.slug}
+                            slug={event.slug}
                         />
                         ))}
                         
@@ -71,7 +71,7 @@ export default function Schedule() {
                                 title={event.metadata.name}
                                 date={moment(event.metadata.date_start).format('dddd, MMMM Do')}
                                 button='Summary'
-                                slug={'events/' + event.slug}
+                                slug={event.slug}
                             />
                             ))}
                     </Col>
