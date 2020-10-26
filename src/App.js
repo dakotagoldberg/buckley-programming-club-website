@@ -30,8 +30,6 @@ export default function App() {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/club-fest' component={ClubFest} />
-            <Route path="/events/:slug" component={Event}/>
-            <Route path="/events" component={Schedule}/>
             <Route path='/schedule' component={Schedule} />
             <Route path="/projects/:slug" component={Project}/>
             <Route path='/projects' component={Projects} />
@@ -40,7 +38,7 @@ export default function App() {
             <Route path='/contribute' component={Contribute} />
             <Route path='/attendance' component={Attendance} />
             <Route path='/de89baf573bddac981489533bc3fc8d0' component={Meeting1Secret}/>
-            <Route path='/*' component={Home} />
+            <Route path="/:slug" component={Event}/>
             <Route component={NoMatch} />
           </Switch>
         </Router>

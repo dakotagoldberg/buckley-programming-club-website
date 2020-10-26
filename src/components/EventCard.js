@@ -74,7 +74,7 @@ export default function EventCard(props) {
                 <div className='meeting-text'>
                     <div className='meeting-title'>{props.title}</div>
                     <div className='meeting-date'>{props.date}</div>
-                    <Link to={'events/' + props.slug}><Button className='info-button'>{props.button}</Button></Link>
+                    <Link to={'/' + props.slug}><Button className='info-button'>{props.button}</Button></Link>
                 </div>
             </div>
         </Styles>
