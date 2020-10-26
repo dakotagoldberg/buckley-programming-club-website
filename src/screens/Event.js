@@ -88,7 +88,7 @@ export default function Event() {
                             <br></br>
                             <div dangerouslySetInnerHTML={{__html: event.metadata.completed ? event.metadata.summary : event.metadata.description}}/>
                         </Col>
-                        {event.metadata.extra && (
+                        {(event.metadata && event.metadata.extra) && (
                             <>
                             <Col lg={1}>{}</Col>
                             <Col lg={5} className='extra'>
