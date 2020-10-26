@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './screens/Home';
 import About from './screens/About';
 import ClubFest from './screens/ClubFest';
@@ -40,6 +40,7 @@ export default function App() {
             <Route path='/contribute' component={Contribute} />
             <Route path='/attendance' component={Attendance} />
             <Route path='/de89baf573bddac981489533bc3fc8d0' component={Meeting1Secret}/>
+            <Route path='/*' component={Home} />
             <Route component={NoMatch} />
           </Switch>
         </Router>
